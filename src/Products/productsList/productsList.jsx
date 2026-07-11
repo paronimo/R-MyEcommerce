@@ -1,55 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductoTarjeta from '../../pages/target.jsx';
-import './products.css';
+import ProductoTarjeta from '../Pages/target.jsx';
+import productosData from './products.json'; // 👈 ¡Importación directa como propusiste!
 
 function ProductsList() {
-  const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState('');
-  const [cargando, setCargando] = useState(true);
 
-  // Simulamos una petición HTTP a la API Rest (Sprint 6 requerirá fetch real)
-  useEffect(() => {
-    setTimeout(() => {
-      setProductos([
-        { id: 1, nombre: "Ataúd Premium de Cedro", precio: 2500, imagen: "https://via.placeholder.com/150", stock: 5 },
-        { id: 2, nombre: "Urna Ecológica Biodegradable", precio: 800, imagen: "https://via.placeholder.com/150", stock: 12 },
-        { id: 3, nombre: "Parcela Familiar - Sector Los Pinos", precio: 5000, imagen: "https://via.placeholder.com/150", stock: 2 },
-        { id: 4, nombre: "Mantenimiento Anual de Césped", precio: 300, imagen: "https://via.placeholder.com/150", stock: 0 }, // Sin stock
-      ]);
-      setCargando(false);
-    }, 1000); // Simula 1 segundo de espera
-  }, []);
-
-  // Filtrado por nombre (Requerimiento US#8)
-  const productosFiltrados = productos.filter(prod =>
+  // Filtrado por nombre en tiempo real (User Story #8)
+  const productosFiltrados = productosData.filter(prod =>
     prod.nombre.toLowerCase().includes(busqueda.toLowerCase())
   );
 
-  if (cargando) {
-    return <div className="loading-state">⏳ Cargando catálogo del más allá...</div>;
-  }
-
   return (
-    <div className="products-module">
-      <div className="products-header">
-        <h2>📦 Gestión de Productos</h2>
-        <div className="header-actions">
+    <div className="products-list-container">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <h2>📦 Gestión de Productos Funerarios</h2>
+        <div>
           <input 
             type="text" 
-            placeholder="Buscar producto por nombre..." 
+            placeholder="Buscar por nombre..." 
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="search-input"
+            style={{ padding: '8px', marginRight: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
           />
-          <Link to="/products/new" className="btn btn-primary">➕ Agregar Producto</Link>
+          <Link to="/products/new" className="btn btn-primary" style={{ background: '#27AE60', color: 'white', padding: '8px 12px', borderRadius: '4px', textDecoration: 'none' }}>
+            Agregar Producto
+          </Link>
         </div>
       </div>
 
       {productosFiltrados.length === 0 ? (
-        <p className="no-results">No se encontraron productos que coincidan con la búsqueda.</p>
+        <p>No hay elementos que coincidan con la búsqueda.</p>
       ) : (
-        <div className="products-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
           {productosFiltrados.map(prod => (
             <ProductoTarjeta key={prod.id} producto={prod} />
           ))}

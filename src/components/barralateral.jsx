@@ -20,7 +20,7 @@ function Sidebar() {
 
         <nav className="sidebar-menu">
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => setIsOpen(false)}>
-            🪦 Inicio
+             Inicio
           </NavLink>
           <NavLink to="/products" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => setIsOpen(false)}>
             📦 Productos y Ataúdes

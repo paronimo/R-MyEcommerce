@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nombre": "Ataúd Premium de Cedro", "precio": 2500, "imagen": "https://via.placeholder.com/150", "stock": 5, "descripcion": "Madera noble tallada a mano con interiores de satén blanco." },
+  { "id": 2, "nombre": "Urna Ecológica Biodegradable", "precio": 800, "imagen": "https://via.placeholder.com/150", "stock": 12, "descripcion": "Fabricada con materiales orgánicos que se integran con la naturaleza." },
+  { "id": 3, "nombre": "Parcela Familiar - Sector Los Pinos", "precio": 5000, "imagen": "https://via.placeholder.com/150", "stock": 2, "descripcion": "Espacio exclusivo para 4 plazas en un entorno parquizado y tranquilo." },
+  { "id": 4, "nombre": "Mantenimiento de Césped Anual", "precio": 300, "imagen": "https://via.placeholder.com/150", "stock": 0, "descripcion": "Servicio premium de corte, riego y colocación de flores mensuales." }
+]
