@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductoTarjeta from '../Pages/target.jsx';
-import productosData from './products.json'; // 👈 ¡Importación directa como propusiste!
+import ProductoTarjeta from '../../pages/target.jsx';
+import productosData from './products.json';
 
 function ProductsList() {
   const [busqueda, setBusqueda] = useState('');

@@ -21,7 +21,6 @@ function App() {
             <Route path="/profile" element={<h2>Perfil del usuario</h2>} />
             <Route path="/404" element={<h2>Error 404 - Página No Encontrada</h2>} />
             <Route path="*" element={<Navigate to="/404" />} />
-            <Route path="/products" element={<ProductsList />} />
           </Routes>
         </main>
       </div>

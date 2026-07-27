@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import productosData from './products.json'; // Importamos la misma fuente de datos
+import productosData from './productsList/products.json';
 
 function ProductView({ isNew = false }) {
   const { id } = useParams();
